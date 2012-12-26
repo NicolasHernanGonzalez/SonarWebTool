@@ -1,0 +1,44 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+ 	xsi:schemaLocation="
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schem/aop/spring-aop-3.0.xsd
+	
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	
+	http://www.springframework.org/schema/mvc 
+	http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+	<context:component-scan base-package="ar.com.globallogic.sonarWebTool">
+		
+		<context:include-filter type="regex" expression="ar.com.globallogic.sonarWebTool.services.*" />
+		
+		<context:include-filter type="regex" expression="ar.com.globallogic.sonarWebTool.controllers.*" />
+		
+	</context:component-scan>
+	
+	<context:annotation-config />
+	
+	<mvc:annotation-driven /> 
+	
+	
+	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+					<value>classpath:/MetrixTool_conf/generalConf.properties</value>
+ 			</list>
+		</property>
+	</bean>
+	
+	<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping" />
+		
+</beans>
