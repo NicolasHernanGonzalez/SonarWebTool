@@ -14,10 +14,6 @@
  		<wtp.version>1.5</wtp.version>
  		<encoding>ISO-8859-1</encoding>
  		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<sonar.language>java</sonar.language>
-		<sonar.projectKey>SonarWebTool</sonar.projectKey>
-		<sonar.projectName>SonarWebTool</sonar.projectName>
-		<sonar.projectVersion>1.0</sonar.projectVersion>
   </properties>
   
   
@@ -72,13 +68,6 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
-
-		<dependency>
-			<groupId>org.codehaus.sonar-plugins</groupId>
-			<artifactId>sonar-quality-index-plugin</artifactId>
-			<version>1.1.2</version>
-		</dependency>
-		
 
           <dependency>
       		<groupId>junit</groupId>
@@ -162,13 +151,7 @@
 				</configuration>
 	   		</plugin>
 	   		
-		      <plugin>
-		        <groupId>org.codehaus.mojo</groupId>
-		        <artifactId>sonar-maven-plugin</artifactId>
-		        <version>1.0</version>
-		      </plugin>
-			
-			<plugin>
+		    <plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<configuration>
@@ -187,24 +170,18 @@
 				</executions>
 			</plugin>
 			
-		      <plugin>
-		        <groupId>org.sonarsource.scanner.maven</groupId>
-		        <artifactId>sonar-maven-plugin</artifactId>
-		        <version>3.6.0.1398</version>
-		      </plugin>
-
-      
+		         
     </plugins>
 
-     <pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.sonarsource.scanner.maven</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>3.6.0.1398</version>
-      </plugin>
-    </plugins>
-  </pluginManagement>
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.sonarsource.scanner.maven</groupId>
+                <artifactId>sonar-maven-plugin</artifactId>
+                <version>3.4.0.905</version>
+            </plugin>
+        </plugins>
+    </pluginManagement>
     
     
     
@@ -245,62 +222,6 @@
 	</reporting>
 
     
-   
-    <profiles>
-        <profile>
-            <id>sonar</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <!-- Optional URL to server. Default value is http://localhost:9000 -->
-                <sonar.host.url>
-                  http://localhost:9000
-                </sonar.host.url>
-            </properties>
-        </profile>
-     
-     
-    <profile>
-      <id>sonar-coverage</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <build>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId>org.jacoco</groupId>
-              <artifactId>jacoco-maven-plugin</artifactId>
-              <version>0.8.3</version>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-        <plugins>
-          <plugin>
-            <groupId>org.jacoco</groupId>
-            <artifactId>jacoco-maven-plugin</artifactId>
-            <executions>
-              <execution>
-                <goals>
-                  <goal>prepare-agent</goal>
-                </goals>
-              </execution>
-              <execution>
-                <id>report</id>
-                <goals>
-                  <goal>report</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-  
-  
-  
   <repositories>
     
      
