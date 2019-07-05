@@ -115,6 +115,8 @@ public class MainController {
 		exportprojectMetrics(dtos,spreadSheet);
 		
 		logger.info("Success..");
+		logger.info("Success..");
+		logger.info("Success..");
 		
 		return "Success! ";
 	}
