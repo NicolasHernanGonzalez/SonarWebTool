@@ -110,6 +110,8 @@ public class MainController {
 		
 		logger.info("Exporting project metrics results...");
 		
+		logger.info("Jus for test");
+		
 		String spreadSheet = chooseSpreadSheet(sheetName);
 		
 		exportprojectMetrics(dtos,spreadSheet);
